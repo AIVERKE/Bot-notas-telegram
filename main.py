@@ -1,7 +1,7 @@
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
-import os
 import json
+import os
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -20,7 +20,6 @@ def guardar_notas():
     with open("notas.json", "w") as f:
         json.dump(notas, f)
 
-# Handlers
 async def agregar_nota(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not update.message:
         return
@@ -61,7 +60,6 @@ async def borrar_nota(update: Update, context: ContextTypes.DEFAULT_TYPE):
     else:
         await update.message.reply_text("Número inválido.")
 
-# Main
 def main():
     app = Application.builder().token(token).build()
     app.add_handler(CommandHandler("nota", agregar_nota))
