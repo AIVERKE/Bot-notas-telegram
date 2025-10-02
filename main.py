@@ -1,8 +1,8 @@
-from telegram import Update
-from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
 import json
 import os
 from dotenv import load_dotenv
+from telegram import Update
+from telegram.ext import Application, CommandHandler, ContextTypes, filters
 
 load_dotenv()
 token = os.environ.get("BOT_TOKEN")
